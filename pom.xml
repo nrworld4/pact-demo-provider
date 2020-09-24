@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.3.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.comcast.snap</groupId>
+    <artifactId>pact-demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>pact-demo</name>
+    <description>Pact Demo Provider</description>
+
+    <properties>
+        <java.version>11</java.version>
+        <pact.version>4.1.7</pact.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>2.11.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>au.com.dius.pact.provider</groupId>
+            <artifactId>junit5spring</artifactId>
+            <version>${pact.version}</version>
+        </dependency>
+
+        <!--        testRuntime "ch.qos.logback:logback-classic:${project.logbackVersion}"-->
+<!--        testCompile 'ru.lanwen.wiremock:wiremock-junit5:1.1.1'-->
+<!--        testCompile 'com.github.tomakehurst:wiremock:2.19.0'-->
+<!--        testRuntime "org.junit.jupiter:junit-jupiter-engine:${project.junit5Version}"-->
+<!--        testRuntime "org.junit.vintage:junit-vintage-engine:${project.junit5Version}"-->
+<!--        testCompile "org.codehaus.groovy:groovy:${project.groovyVersion}"-->
+<!--        testCompile('org.spockframework:spock-core:2.0-M2-groovy-3.0') {-->
+<!--        exclude group: 'org.codehaus.groovy'-->
+<!--        }-->
+<!--        testRuntime "net.bytebuddy:byte-buddy:${project.bytebuddyVersion}"-->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>au.com.dius.pact.provider</groupId>
+                <artifactId>maven</artifactId>
+                <version>4.1.0</version>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
